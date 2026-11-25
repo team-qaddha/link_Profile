@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>عمر</title><link href="https://fonts.googleapis.com/css2?family=Reem+Kufi:wght@500;700&amp;family=Tajawal:wght@400;500;700&amp;display=swap" rel="stylesheet"><style>
+:root{--fg:#F4EFE6;--mut:rgba(244,239,230,.72);--acc:#F2B544;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:dark}
+:root{--sh:inset 0 1px 0 rgba(255,255,255,calc(var(--tr,.5)*.5)),inset 0 -2px 4px rgba(0,0,0,calc(var(--tr,.5)*.3)),0 calc(var(--tr,.5)*10px) calc(var(--tr,.5)*20px) rgba(0,0,0,calc(var(--tr,.5)*.45))}
+html{background:#0F1626}
+body{margin:0;color:var(--fg);font-family:"Tajawal",system-ui,sans-serif;line-height:1.6}
+main{max-width:440px;margin:0 auto;padding:60px 20px 130px}
+.top{display:flex;direction:ltr;gap:16px;align-items:flex-end;margin-bottom:24px}
+.avatar{flex:none;width:112px;height:112px;border-radius:50%;border:0;background:rgba(255,255,255,var(--ta,.12));box-shadow:var(--sh);display:grid;place-items:center;font:700 52px/1 "Reem Kufi",sans-serif;overflow:hidden}
+.avatar img{width:100%;height:100%;object-fit:cover}
+.player{direction:rtl;position:relative;flex:1;margin-top:40px;border:0;background:rgba(255,255,255,var(--ta,.12));box-shadow:var(--sh);border-radius:18px;padding:50px 14px 12px;display:flex;justify-content:space-between;align-items:center}
+.disc{position:absolute;top:-40px;left:50%;margin-left:-40px;width:80px;height:80px;border-radius:50%;border:2px solid var(--fg);background:radial-gradient(circle,var(--pc,var(--acc)) 0 7px,transparent 8px),repeating-radial-gradient(circle,rgba(127,127,127,.15) 0 6px,rgba(127,127,127,.5) 6px 7px)}
+.playing .disc{animation:spin 4s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){.playing .disc{animation:none}}
+#time{font:500 20px/1 "Tajawal",sans-serif;direction:ltr;font-variant-numeric:tabular-nums}
+#play{width:44px;height:44px;border-radius:50%;border:0;background:var(--pc,var(--fg));color:var(--pf,#0F1626);cursor:pointer;display:grid;place-items:center;padding:0}
+button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid var(--acc);outline-offset:3px}
+.bio{border:0;background:rgba(255,255,255,var(--ta,.12));box-shadow:var(--sh);border-radius:18px;padding:22px 18px;margin:0 0 24px}
+.bio h2{margin:0 0 6px;font:700 26px/1.3 "Reem Kufi","Tajawal",sans-serif}
+.bio p{margin:0;color:var(--mut);font-size:17px;white-space:pre-line}
+.grid{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:18vh;margin-bottom:28px}
+.grid a{width:84px;height:84px;border:0;border-radius:18px;display:grid;place-items:center;color:var(--fg);background:rgba(255,255,255,var(--ta,.12));backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);box-shadow:inset 0 1px 0 rgba(255,255,255,calc(var(--tr,.5)*.5)),inset 0 -2px 4px rgba(0,0,0,calc(var(--tr,.5)*.3)),0 calc(var(--tr,.5)*10px) calc(var(--tr,.5)*20px) rgba(0,0,0,calc(var(--tr,.5)*.45));transition:transform .15s}
+.grid a:hover{transform:translateY(-2px)}
+.dock{position:fixed;left:0;right:0;bottom:0;z-index:4;display:flex;align-items:center;justify-content:center;gap:10px;padding:10px 14px calc(10px + env(safe-area-inset-bottom,0px))}
+.dock .grid{margin:0;flex:1;gap:10px}
+.dock .grid a{width:56px;height:56px;border-radius:16px;padding:0;color:var(--ic,var(--fg))}
+.dock .grid svg{width:26px;height:26px}
+.dock .foot{gap:8px}
+.dock .foot b{font:500 13px "Tajawal",sans-serif}
+.dock .eye{padding:3px 10px;font-size:15px}
+.dock .eye svg{width:18px;height:18px}
+#sheet input[type=range]{width:100%;margin-top:6px}
+#sheet input[type=checkbox]{width:20px;height:20px;vertical-align:middle;margin:0 0 0 8px}
+.lr{margin-top:12px}
+.grid svg{width:32px;height:32px}
+.foot{display:flex;justify-content:space-between;align-items:center}
+.foot b{font:700 20px/1.3 "Reem Kufi","Tajawal",sans-serif}
+.eye{display:flex;align-items:center;gap:8px;border:0;background:rgba(255,255,255,var(--ta,.12));box-shadow:var(--sh);border-radius:12px;padding:6px 12px;font-weight:700;font-size:18px}
+#gear{position:fixed;left:12px;top:calc(10px + env(safe-area-inset-top,0px));width:40px;height:40px;border-radius:50%;border:0;background:rgba(255,255,255,.14);color:var(--fg);display:grid;place-items:center;padding:0;cursor:pointer;z-index:6}
+#sheet{position:fixed;inset:auto 0 0 0;max-height:78vh;overflow:auto;background:#141b2e;color:#F4EFE6;padding:16px 18px calc(70px + env(safe-area-inset-bottom,0px));border-radius:18px 18px 0 0;z-index:5;font-size:15px;box-shadow:0 -8px 30px rgba(0,0,0,.5)}
+#sheet h3{margin:0 0 10px;font:700 22px "Reem Kufi",sans-serif}
+#sheet h4{margin:18px 0 8px;font-size:16px}
+#sheet label{display:block;margin-top:10px}
+#sheet input:not([type=color]):not([type=file]):not([type=range]):not([type=checkbox]),#sheet textarea{width:100%;box-sizing:border-box;margin-top:4px;padding:10px;border-radius:10px;border:1px solid #3a4666;background:#0e1424;color:#fff;font:inherit}
+#sheet input[type=file]{display:block;margin-top:6px;color:#cfd6e8;max-width:100%}
+#sheet input[type=color]{width:52px;height:40px;border:0;background:none;padding:0}
+#sheet button{font:inherit;cursor:pointer}
+.row{display:flex;gap:10px;align-items:center;margin-top:10px}
+.sm,#add{padding:8px 14px;border-radius:10px;border:1px solid #5b6a92;background:none;color:#F4EFE6}
+.pri{display:block;width:100%;margin-top:20px;padding:13px;border-radius:12px;border:0;background:#F2B544;color:#1a1204;font-weight:700;font-size:17px}
+#chips{display:flex;flex-wrap:wrap;gap:12px}
+.chip{position:relative}
+.chip button{width:52px;height:68px;border-radius:12px;border:2px solid transparent;padding:0}
+.chip.on button{border-color:#7b8cff}
+.chip i{position:absolute;top:-8px;right:-8px;width:22px;height:22px;border-radius:50%;background:#2b3556;display:grid;place-items:center;font-style:normal;cursor:pointer}
+#msg{margin:10px 0 0;color:#F2B544;min-height:1.4em}
+</style></head><body><main id="app"></main><script type="application/json" id="state">{"name":"عمر","bio":"اكتب هون كلامك أو نبذة عنك.","photo":"","song":"","theme":2,"themes":[{"c":["#06130f","#0e2a4a","#1b1f6b","#070a14"]},{"c":["#3a0a2a","#6b2a2a","#7a5a10","#1a0f05"]},{"c":["#12062e","#5a0f8a","#8a2a5a","#a0601a"]},{"c":["#050505","#3a0808","#100606","#000000"]},{"c":["#1b1f6b","#7e5545","#e08a1e"]},{"c":["#ffaf6e","#ffbf82","#ffce96"]},{"c":["#ff8000","#ff9b3c","#ffb578"]}],"links":{"instagram":"#","tiktok":"#","youtube":"#","whatsapp":"#","snapchat":"#","telegram":"#"},"tile":{"a":0.08,"r":1},"on":{"telegram":false,"whatsapp":false,"youtube":false}}</script><script id="code">
+(function(){
+var S=JSON.parse(document.getElementById('state').textContent);
+var root=document.documentElement,app=document.getElementById('app');
+var SW='fill="none" stroke="currentColor" stroke-width="2"';
+var IC={
+instagram:['إنستغرام','<rect x="3" y="3" width="18" height="18" rx="5" '+SW+'/><circle cx="12" cy="12" r="4" '+SW+'/><circle cx="17.5" cy="6.5" r="1.3" fill="currentColor"/>'],
+tiktok:['تيك توك','<path fill="currentColor" d="M16.6 3c.3 2.3 1.7 3.8 4 4v3.1a7.3 7.3 0 0 1-4-1.3v6.2a5.6 5.6 0 1 1-5.6-5.6c.3 0 .6 0 .9.1v3.2a2.5 2.5 0 1 0 1.6 2.3V3z"/>'],
+youtube:['يوتيوب','<path fill="currentColor" d="M21.6 7.2a2.5 2.5 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4A2.5 2.5 0 0 0 2.4 7.2C2 8.8 2 12 2 12s0 3.2.4 4.8a2.5 2.5 0 0 0 1.8 1.8C5.8 19 12 19 12 19s6.2 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8c.4-1.6.4-4.8.4-4.8s0-3.2-.4-4.8zM10 15V9l5.2 3z"/>'],
+whatsapp:['واتساب','<path '+SW+' stroke-linejoin="round" d="M3 21l1.6-4.6A8.5 8.5 0 1 1 8 19.6z"/><path fill="currentColor" d="M9 7.5c-.5 1-.4 2.5 1.2 4.3s3.3 2.5 4.5 2.2c.6-.2 1-.8 1-1.3l-1.8-.9-.8.8c-1-.4-2-1.4-2.4-2.4l.8-.8-.8-1.8c-.5 0-1.3.1-1.7.9z"/>'],
+snapchat:['سناب شات','<path fill="currentColor" d="M12 3c3 0 5 2.2 5 5v2c0 .6.5 1 1.5 1.2.6.1.6.8 0 1-.8.3-1.3.5-1.2 1 .5 1.2 1.6 2 2.7 2.3-.2.6-1.5.8-2.3 1-.4.5-.6 1.5-2 1.5-1.1 0-1.7-.9-3.7-.9s-2.6.9-3.7.9c-1.4 0-1.6-1-2-1.5-.8-.2-2.1-.4-2.3-1 1.1-.3 2.2-1.1 2.7-2.3.1-.5-.4-.7-1.2-1-.6-.2-.6-.9 0-1C6.5 11 7 10.6 7 10V8c0-2.8 2-5 5-5z"/>'],
+telegram:['تيليغرام','<path fill="currentColor" d="M21.5 3.5L2.8 10.7c-.8.3-.8 1.3 0 1.6l4.7 1.5 1.8 5.5c.2.6 1 .8 1.5.3l2.600-2.400 4.700 3.500c.6.400 1.300.1 1.500-.6l3.100-15.400c.2-.8-.5-1.400-1.200-1.100zM9.5 14l9-6.500-6.800 7.800-.3 3.200z"/>']
+};
+Object.assign(IC,{
+x:['X','<path fill="currentColor" d="M4 4h4.6l11.4 16h-4.6z"/><path fill="none" stroke="currentColor" stroke-width="2" d="M19.5 4l-6.8 7.6M4.5 20l6.8-7.6"/>'],
+spotify:['سبوتيفاي','<circle cx="12" cy="12" r="10" '+SW+'/><path '+SW+' stroke-linecap="round" d="M6.5 9.2c4-1.2 8-.9 11.5 1.1M7 12.6c3.4-.9 6.4-.6 9.3 1M7.6 15.8c2.6-.6 4.8-.4 7.2.9"/>'],
+facebook:['فيسبوك','<path fill="currentColor" d="M14 8V6.5c0-.7.3-1 1-1h2V2h-3c-3 0-4.5 1.8-4.5 4.3V8H7v3.5h2.5V22H14V11.5h2.8L17.3 8z"/>'],
+discord:['ديسكورد','<path fill="currentColor" fill-rule="evenodd" d="M18.5 5.5A15 15 0 0 0 14.8 4.3l-.5 1a13 13 0 0 0-4.6 0l-.5-1A15 15 0 0 0 5.5 5.5C3.2 9 2.6 12.4 2.9 15.7a15 15 0 0 0 4.6 2.3l1-1.6c-.6-.2-1.100-.5-1.600-.9l.4-.3a10.500 10.500 0 0 0 9.400 0l.4.3c-.5.4-1 .7-1.600.9l1 1.600a15 15 0 0 0 4.600-2.300c.4-3.800-.6-7.100-2.600-10.200zM9.500 13.800c-.9 0-1.600-.8-1.600-1.800s.7-1.800 1.600-1.800 1.600.8 1.600 1.800-.7 1.800-1.600 1.800zm5 0c-.9 0-1.600-.8-1.600-1.800s.7-1.800 1.600-1.800 1.600.8 1.600 1.800-.7 1.800-1.600 1.800z"/>'],
+twitch:['تويتش','<path fill="currentColor" fill-rule="evenodd" d="M4 3L3 7v12h4v3h3l3-3h4l5-5V3zm15 10l-3 3h-4l-3 3v-3H6V5h13zm-4-5h-2v5h2zm-5 0H8v5h2z"/>'],
+github:['جيت هاب','<path fill="currentColor" d="M12 2a10 10 0 0 0-3.200 19.500c.5.1.7-.2.7-.5v-1.700c-2.800.6-3.400-1.300-3.400-1.300-.5-1.200-1.100-1.500-1.100-1.500-.9-.6.1-.6.1-.6 1 .1 1.500 1 1.500 1 .9 1.500 2.300 1.100 2.900.8.1-.7.4-1.100.6-1.400-2.200-.3-4.600-1.100-4.600-5 0-1.100.4-2 1-2.700-.1-.3-.4-1.300.1-2.700 0 0 .8-.3 2.700 1a9.300 9.300 0 0 1 5 0c1.900-1.300 2.700-1 2.700-1 .5 1.400.2 2.400.1 2.700.6.7 1 1.600 1 2.700 0 3.900-2.400 4.700-4.600 5 .4.300.7.900.7 1.800V21c0 .3.2.6.7.5A10 10 0 0 0 12 2z"/>'],
+linkedin:['لينكدإن','<path fill="currentColor" d="M4 9h3.5v11H4zM5.7 3.5a2 2 0 1 1 0 4 2 2 0 0 1 0-4zM10 9h3.3v1.5c.5-.9 1.7-1.800 3.400-1.800 3.500 0 4.300 2.300 4.300 5.300V20h-3.500v-5.200c0-1.300 0-2.800-1.800-2.800s-2 1.300-2 2.700V20H10z"/>']
+});
+function esc(s){return String(s).replace(/[&<>"']/g,function(c){return'&#'+c.charCodeAt(0)+';'})}
+function rgb(h){var n=parseInt(h.slice(1),16);return[n>>16,n>>8&255,n&255]}
+function mix(a,b,t){var x=rgb(a),y=rgb(b);return'#'+x.map(function(v,i){return('0'+Math.round(v+(y[i]-v)*t).toString(16)).slice(-2)}).join('')}
+function lum(c){var r=rgb(c);return(.299*r[0]+.587*r[1]+.114*r[2])/255}
+function grad(c){return'linear-gradient(160deg,'+c.join(',')+')'}
+function href(u){u=(u||'').trim();return u==='#'||/^https?:\/\//.test(u)?u:'https://'+u}
+function okUrl(u){return/^(https:\/\/|\/_blob\/|data:)/.test(u)}
+
+app.innerHTML='<section class="top" id="top"><div class="avatar" id="av"></div><div class="player"><div class="disc" aria-hidden="true"></div><span id="time">0:00</span><button id="play" type="button" aria-pressed="false" aria-label="تشغيل الصوت"><svg id="ico" width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M6 3.5v13l11-6.5z" fill="currentColor"/></svg></button></div></section><nav class="grid" id="gr" aria-label="حساباتي"></nav><div class="dock"><footer class="foot" id="ft" style="display:none"><b>المشاهدات</b><div class="eye"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg><span id="vc">–</span></div></footer></div><audio id="au" loop preload="none"></audio>';
+var $=function(i){return document.getElementById(i)};
+
+function theme(){
+  var c=S.themes[S.theme].c,L=c.reduce(function(a,x){return a+lum(x)},0)/c.length,light=L>.55;
+  root.style.background=grad(c)+' fixed';
+  root.style.setProperty('--fg',light?'#0F1626':'#F4EFE6');
+  root.style.setProperty('--mut',light?'rgba(15,22,38,.75)':'rgba(244,239,230,.72)');
+  root.style.setProperty('--acc',light?'#B86E00':'#F2B544');
+  root.style.colorScheme=light?'light':'dark';
+  S.tile=S.tile||{a:.12,r:.5};S.on=S.on||{};S.col=S.col||{};root.style.setProperty('--ic',S.col.ic||'');root.style.setProperty('--pc',S.col.pl||'');root.style.setProperty('--pf',S.col.pl?(lum(S.col.pl)>.55?'#0F1626':'#fff'):(light?'#fff':'#0F1626'));root.style.setProperty('--ta',S.tile.a);root.style.setProperty('--tr',S.tile.r);
+}
+function paint(){
+  $('av').innerHTML=S.photo&&okUrl(S.photo)?'<img alt="" src="'+esc(S.photo)+'">':'<svg viewBox="0 0 24 24" width="58" height="58" fill="currentColor" opacity=".85" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7z"/></svg>';
+  document.title=S.name;
+  var h='';Object.keys(IC).forEach(function(k){var u=S.links[k];if(u&&S.on[k]!==false)h+='<a href="'+esc(href(u))+'" aria-label="'+IC[k][0]+'" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true">'+IC[k][1]+'</svg></a>'});
+  $('gr').innerHTML=h;
+}
+theme();paint();
+
+/* sound */
+var au=$('au'),btn=$('play'),ico=$('ico'),top_=$('top'),tm=$('time');
+var ac,master,timer,tick,secs=0,playing=false,notes=[220,261.63,293.66,329.63,392,440,523.25];
+var PLAY='M6 3.5v13l11-6.5z',PAUSE='M5 3.5h3.5v13H5zM11.5 3.5H15v13h-3.5z';
+function build(){
+  ac=new(window.AudioContext||window.webkitAudioContext)();
+  master=ac.createGain();master.gain.value=0;master.connect(ac.destination);
+  [110,164.81,220,261.63].forEach(function(f,i){
+    var o=ac.createOscillator(),g=ac.createGain();o.type='sine';o.frequency.value=f;o.detune.value=i%2?5:-5;g.gain.value=.12;o.connect(g);g.connect(master);o.start();
+    var l=ac.createOscillator(),lg=ac.createGain();l.frequency.value=.07+i*.03;lg.gain.value=.05;l.connect(lg);lg.connect(g.gain);l.start();
+  });
+}
+function pluck(){
+  var t=ac.currentTime,o=ac.createOscillator(),g=ac.createGain();o.type='triangle';
+  o.frequency.value=notes[Math.floor(Math.random()*notes.length)]*(Math.random()<.3?2:1);
+  g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(.18,t+.02);g.gain.exponentialRampToValueAtTime(.001,t+2.2);
+  o.connect(g);g.connect(master);o.start(t);o.stop(t+2.3);
+}
+function fade(to,s){var t=ac.currentTime;master.gain.cancelScheduledValues(t);master.gain.setValueAtTime(master.gain.value,t);master.gain.linearRampToValueAtTime(to,t+s)}
+function show(){var s=S.song&&okUrl(S.song)?Math.floor(au.currentTime):secs,m=Math.floor(s/60);tm.textContent=m+':'+('0'+s%60).slice(-2)}
+function start(){
+  if(S.song&&okUrl(S.song)){if(au.getAttribute('src')!==S.song)au.src=S.song;au.play()}
+  else{if(!ac)build();ac.resume();fade(.6,1.5);pluck();timer=setInterval(pluck,1300)}
+  tick=setInterval(function(){secs++;show()},1000);
+  playing=true;top_.classList.add('playing');btn.setAttribute('aria-pressed','true');btn.setAttribute('aria-label','إيقاف الصوت');ico.firstElementChild.setAttribute('d',PAUSE);
+}
+function stop(){
+  clearInterval(timer);clearInterval(tick);au.pause();if(ac){fade(0,.8);setTimeout(function(){if(!playing)ac.suspend()},900)}
+  playing=false;top_.classList.remove('playing');btn.setAttribute('aria-pressed','false');btn.setAttribute('aria-label','تشغيل الصوت');ico.firstElementChild.setAttribute('d',PLAY);
+}
+btn.addEventListener('click',function(){playing?stop():start()});
+
+/* owner controls */
+function buildDoc(){
+  var css=document.querySelector('style').textContent,code=$('code').textContent,font=document.querySelector('link[rel=stylesheet]').outerHTML;
+  return'<!doctype html>\n<html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>'+esc(S.name)+'</title>'+font+'<style>'+css+'</style></head><body><main id="app"></main><script type="application/json" id="state">'+JSON.stringify(S).replace(/</g,'\\u003c')+'<\/script><script id="code">'+code+'<\/script></body></html>';
+}
+function controls(){
+  var g=document.createElement('button');g.id='gear';g.type='button';g.setAttribute('aria-label','التحكم');
+  g.innerHTML='<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.900 4.900l2.100 2.100M17 17l2.100 2.100M4.900 19.100L7 17M17 7l2.100-2.100"/></svg>';
+  document.body.appendChild(g);
+  var sh=null;
+  g.addEventListener('click',function(){if(sh){sh.remove();sh=null;return}open()});
+  function msg(t){$('msg').textContent=t}
+  function chips(){
+    var h='';S.themes.forEach(function(t,i){h+='<span class="chip'+(i===S.theme?' on':'')+'"><button type="button" data-i="'+i+'" style="background:'+grad(t.c)+'" aria-label="ثيم '+(i+1)+'"></button>'+(S.themes.length>1?'<i data-x="'+i+'" role="button" aria-label="حذف">×</i>':'')+'</span>'});
+    $('chips').innerHTML=h;
+  }
+  function open(){
+    sh=document.createElement('div');sh.id='sheet';
+    var lk='';Object.keys(IC).forEach(function(k){lk+='<div class="lr"><label><input type="checkbox" data-o="'+k+'"'+(S.on[k]!==false?' checked':'')+'> '+IC[k][0]+'</label><input data-k="'+k+'" dir="ltr" placeholder="https://..." value="'+esc(S.links[k]||'')+'"></div>'});
+    sh.innerHTML='<h3>التحكم</h3><label>الاسم<input id="f-nm" value="'+esc(S.name)+'"></label><label>صورتك<input id="f-ph" type="file" accept="image/*"></label><label>الأغنية<input id="f-so" type="file" accept="audio/*"></label><div class="row"><button id="so-x" type="button" class="sm">إزالة الأغنية</button></div><h4>الخلفية: اختار ثيم أو ضيف ثيم من لونين</h4><div id="chips"></div><div class="row"><input id="c1" type="color" value="#1b1f6b" aria-label="اللون الأول"><input id="c2" type="color" value="#e08a1e" aria-label="اللون الثاني"><button id="add" type="button">أضف ثيم</button></div><h4>ألوان</h4><div class="row"><label>أيقونات التطبيقات <input id="c-ic" type="color" value="'+(S.col.ic||'#ffffff')+'"></label><button id="r-ic" type="button" class="sm">تلقائي</button></div><div class="row"><label>أيقونة الموسيقى <input id="c-pl" type="color" value="'+(S.col.pl||'#ffffff')+'"></label><button id="r-pl" type="button" class="sm">تلقائي</button></div><h4>شفافية وبروز الصورة والمشغّل والعدّاد</h4><label>الشفافية<input id="t-a" type="range" min="0" max="0.6" step="0.01" value="'+S.tile.a+'"></label><label>البروز<input id="t-r" type="range" min="0" max="1" step="0.05" value="'+S.tile.r+'"></label><h4>الأيقونات (علّم الصح على اللي بدك يظهر)</h4>'+lk+'<button id="save" type="button" class="pri">حفظ ونشر</button><p id="msg" role="status"></p>';
+    document.body.appendChild(sh);chips();
+    $('f-nm').oninput=function(e){S.name=e.target.value;paint()};
+    
+    sh.querySelectorAll('[data-k]').forEach(function(i){i.oninput=function(){S.links[i.dataset.k]=i.value;paint()}});
+    $('chips').onclick=function(e){var d=e.target.dataset;
+      if(d.x!==undefined){S.themes.splice(+d.x,1);S.theme=Math.min(S.theme>+d.x?S.theme-1:S.theme,S.themes.length-1)}
+      else if(d.i!==undefined)S.theme=+d.i;else return;theme();chips()};
+    $('add').onclick=function(){var a=$('c1').value,b=$('c2').value;S.themes.push({c:[a,mix(a,b,.5),b]});S.theme=S.themes.length-1;theme();chips()};
+    $('so-x').onclick=function(){S.song='';au.removeAttribute('src');msg('انشالت الأغنية، بيرجع الصوت الهادي. اضغط حفظ ونشر.')};
+    $('c-ic').oninput=function(e){S.col.ic=e.target.value;theme()};$('c-pl').oninput=function(e){S.col.pl=e.target.value;theme()};$('r-ic').onclick=function(){delete S.col.ic;$('c-ic').value='#ffffff';theme()};$('r-pl').onclick=function(){delete S.col.pl;$('c-pl').value='#ffffff';theme()};
+    sh.querySelectorAll('[data-o]').forEach(function(i){i.onchange=function(){S.on[i.dataset.o]=i.checked;paint()}});
+    $('t-a').oninput=function(e){S.tile.a=+e.target.value;theme()};$('t-r').oninput=function(e){S.tile.r=+e.target.value;theme()};
+    function local(f,key){return new Promise(function(res){try{
+      if(key==='photo'){var im=new Image(),u=URL.createObjectURL(f);im.onload=function(){var s=Math.min(1,640/Math.max(im.width,im.height)),c=document.createElement('canvas');c.width=Math.round(im.width*s);c.height=Math.round(im.height*s);c.getContext('2d').drawImage(im,0,0,c.width,c.height);S.photo=c.toDataURL('image/jpeg',.85);URL.revokeObjectURL(u);res(true)};im.onerror=function(){res(false)};im.src=u}
+      else if(f.size<7e6){var r=new FileReader();r.onload=function(){S.song=r.result;au.removeAttribute('src');res(true)};r.onerror=function(){res(false)};r.readAsDataURL(f)}
+      else res(false)}catch(x){res(false)}})}
+    function up(id,key,label){$(id).onchange=async function(e){var f=e.target.files[0];if(!f)return;msg('عم يجهّز '+label+'...');if(await local(f,key)){paint();msg('جاهزة '+label+'. اضغط حفظ ونشر.');return}
+      try{var as=await claude.use('assets');if(!as){msg('رفع الملفات مش متاح هون');return}msg('عم يرفع '+label+'...');
+        var r=await as.upload(f);S[key]=r.url;if(key==='song')au.removeAttribute('src');paint();msg('انرفعت '+label+'. اضغط حفظ ونشر.')}catch(x){msg('ما انرفعت: '+(x.message||x.code))}}}
+    up('f-ph','photo','الصورة');up('f-so','song','الأغنية');
+    $('save').onclick=async function(){
+      try{var art=await claude.use('artifact');if(!art){msg('النشر مش متاح هون');return}msg('عم يحفظ...');await art.publish(buildDoc())}
+      catch(x){msg('ما انحفظ: '+(x.code||x.message))}};
+  }
+}
+(async function(){try{var db=window.claude&&await claude.use('db'),us=window.claude&&await claude.use('user');if(!db)return;var c=db.collection('visits');if(us){try{await c.doc(await us.id()).set({t:Date.now()})}catch(e){}}var s=await c.get();$('vc').textContent=s.size;$('ft').style.display='flex'}catch(e){}})();
+(async function(){try{if(!window.claude)return;var u=await claude.use('user');if(u&&await u.isOwner())controls()}catch(e){}})();
+})();
+</script></body></html>
